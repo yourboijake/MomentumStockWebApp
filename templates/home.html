@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Momentum Tool</title>
+    <style>
+        body {
+            background-color: #F5FEF5;
+            font-family: Helvetica;
+        }
+        h1, h3 {
+            color: grey;
+            font-size: 20px;
+            font-family: Helvetica;
+            float: none;
+        }
+        h2 {
+            position: relative;
+        }
+        table.dataframe, .dataframe th, .dataframe td {
+            border-bottom: 1px solid #C8C8C8;
+            border-collapse: collapse;
+            text-align:left;
+            padding: 10px;
+            margin-bottom: 40px;
+            font-size: 14px;
+            display: in-line block;
+            margin-right:40px
+            bottom: -40px;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            font-family: Helvetica;
+            background-color: #11BF11
+        }
+        .nav {
+            list-style: none;
+            text-align: center;
+            padding: 20px 0 20px 0;
+        }
+        .nav > li {
+            display: inline-block;
+            padding-right: 12%;
+        }
+        .nav > li > a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+        .nav > li > a:hover {
+            color: #c1c1c1;
+        }
+        div {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+        div > h3 {
+            display: table-header-group;
+            text-align: left;
+            font-size: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="lookup1.html">Stock Lookup</a></li>
+        <li><a href="formulas.html">Formulas</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+    <h1>Home</h1>
+    <p>Welcome to the Momentum Stock Tool!</p>
+    <p>See the best and worst stocks, as ranked by their risk-adjusted return, or use the Stock Lookup to get info on a particular stock you are interested in!</p>
+    <div>
+    {% for table in tables %}
+        <h3>{{titles[loop.index]}}</h3>
+        {{ table|safe }}
+    {% endfor %}
+    </div>
+</body>
+</html>
