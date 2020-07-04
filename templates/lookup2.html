@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Momentum Tool</title>
+    <style>
+        body {
+            background-color: #F5FEF5;
+            font-family: Helvetica
+        }
+        h1 {
+            color: grey;
+            font-size: 20px;
+        }
+        form {
+            font-size: 16px;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            font-family: Helvetica;
+            background-color: #11BF11;
+        }
+        .nav {
+            list-style: none;
+            text-align: center;
+            padding: 20px 0 20px 0;
+        }
+        .nav > li {
+            display: inline-block;
+            padding-right: 12%;
+        }
+        .nav > li > a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+        .nav > li > a:hover {
+            color: #c1c1c1;
+        }
+        table.dataframe, .dataframe th, .dataframe td {
+            border-bottom: 1px solid #C8C8C8;
+            border-collapse: collapse;
+            text-align:left;
+            padding: 10px;
+            margin-bottom: 40px;
+            font-size: 14px;
+            display: in-line block;
+            margin-right: 40px;
+        }
+        div {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="lookup1.html">Stock Lookup</a></li>
+        <li><a href="formulas.html">Formulas</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+    <h1>Stock Lookup</h1>
+    <form action="/lookup2.html", method="post">
+        <label for="ticker">Enter a NYSE, NASDAQ, or AMEX ticker for momentum information:</label><br>
+        <input type="text" id="ticker" placeholder="Stock Ticker" name="ticker"><br>
+        <input type="submit" value="SUBMIT">
+    </form>
+    {% if length > 0 %}
+        {% for table in tables %}
+            <div>{{titles[loop.index]}}</div>
+            {{ table|safe }}
+        {% endfor %}
+    {% else %}
+        This ticker is not available
+    {% endif %}
+</body>
+</html>
